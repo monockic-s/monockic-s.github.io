@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西瓜酱 - 传统手工酱料与美食制作指南</title>
+    <meta name="description" content="西瓜酱 - 专注传统手工西瓜酱的制作工艺、食材选购、发酵技巧及家常食谱，提供从零开始制作美味西瓜酱的详细指南。">
+    <meta name="keywords" content="西瓜酱, 手工西瓜酱, 西瓜酱制作, 传统酱料, 家常菜谱, 美食制作">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --primary-dark: #e05555;
+            --secondary-color: #4ecdc4;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --bg-body: #f7f9fc;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffeaa7 100%);
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        /* Article Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 28px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ingredient-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+        }
+
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+
+        .ingredient-list span:last-child {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .tips-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Recipe Grid */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding-bottom: 60px;
+        }
+
+        .recipe-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .recipe-img-placeholder {
+            height: 180px;
+            background-color: #ffeaa7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fab1a0;
+            position: relative;
+        }
+        
+        .recipe-img-placeholder::after {
+            content: '🍉';
+        }
+
+        .recipe-content {
+            padding: 20px;
+        }
+
+        .recipe-tag {
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            background: rgba(78, 205, 196, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .recipe-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .recipe-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .recipe-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #b2bec3;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>西瓜</span>酱
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#recipes">家常食谱</a></li>
+                    <li><a href="#guide">制作指南</a></li>
+                    <li><a href="#tips">保存技巧</a></li>
+                </ul>
+            </nav>
+            <a href="#guide" class="cta-btn">开始制作</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>天然发酵的<span>西瓜酱</span>，唤醒夏日记忆</h1>
+                <p>无需复杂的工业添加剂，只需一颗西瓜和阳光，就能制作出色泽红亮、咸甜适口的传统手工西瓜酱。</p>
+                <div class="hero-tags">
+                    <span class="tag">#夏季必备</span>
+                    <span class="tag">#无添加</span>
+                    <span class="tag">#传统发酵</span>
+                    <span class="tag">#百搭佐餐</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container main-grid">
+            <!-- Left Column: Articles & Recipes -->
+            <div class="content-area">
+                
+                <!-- Featured Recipe -->
+                <section id="recipes">
+                    <h2 class="section-title">经典食谱推荐</h2>
+                    <div class="recipe-grid">
+                        <!-- Recipe 1 -->
+                        <article class="recipe-card">
+                            <div class="recipe-img-placeholder"></div>
+                            <div class="recipe-content">
+                                <span class="recipe-tag">经典口味</span>
+                                <h3 class="recipe-title">传统家常西瓜酱</h3>
+                                <p class="recipe-desc">最正宗的做法，选用熟透的西瓜，配以黄豆和辣椒，经过三伏天的暴晒发酵，香气浓郁。</p>
+                                <div class="recipe-footer">
+                                    <span>⏱ 预计 3 天</span>
+                                    <span>👨‍👩‍👧 适合全家</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Recipe 2 -->
+                        <article class="recipe-card">
+                            <div class="recipe-img-placeholder"></div>
+                            <div class="recipe-content">
+                                <span class="recipe-tag">快手版</span>
+                                <h3 class="recipe-title">电饭煲西瓜酱</h3>
+                                <p class="recipe-desc">利用现代电器简化发酵过程，适合不想长时间等待阳光暴晒的快节奏生活。</p>
+                                <div class="recipe-footer">
+                                    <span>⏱ 预计 8 小时</span>
+                                    <span>👨‍🍳 适合新手</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Recipe 3 -->
+                        <article class="recipe-card">
+                            <div class="recipe-img-placeholder"></div>
+                            <div class="recipe-content">
+                                <span class="recipe-tag">创新吃法</span>
+                                <h3 class="recipe-title">西瓜酱拌面/拌饭</h3>
+                                <p class="recipe-desc">除了直接食用，西瓜酱更是面条和米饭的绝佳伴侣，简单几步提升饭菜口感。</p>
+                                <div class="recipe-footer">
+                                    <span>⏱ 5 分钟</span>
+                                    <span>🌟 简单快手</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Detailed Guide -->
+                <section id="guide">
+                    <h2 class="section-title">制作全流程解析</h2>
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span>📅 2023-10-15</span>
+                            <span>👁 12,304 阅读</span>
+                        </div>
+                        <h3 class="article-title">从选瓜到发酵：如何制作出完美的西瓜酱</h3>
+                        <p class="article-excerpt">
+                            制作西瓜酱的核心在于选瓜和发酵环境。首先，必须选择成熟度高、糖分足的西瓜。切开西瓜后，将瓜瓤挖出，剔除黑籽，切成小块。接着，将西瓜块与洗净晾干的大豆按一定比例混合，这是赋予酱料醇厚豆香的关键步骤。
+                        </p>
+                        <p class="article-excerpt">
+                            将混合好的原料放入大缸中，加入适量的食盐和辣椒面（根据个人口味调整）。最关键的一步是密封后放置在阳光直射且通风良好的地方。利用夏季的高温加速发酵，每天搅拌一次，大约一周后，原本的西瓜块会分解，油脂析出，酱体变得红亮粘稠，香气四溢。
+                        </p>
+                        <a href="#" class="read-more">阅读完整指南 &rarr;</a>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span>📅 2023-09-20</span>
+                            <span>👁 8,921 阅读</span>
+                        </div>
+                        <h3 class="article-title">为什么你的西瓜酱会发苦？常见误区解析</h3>
+                        <p class="article-excerpt">
+                            很多人在制作西瓜酱时遇到发苦的情况，通常是因为选瓜不当或发酵环境不卫生。未完全成熟的青皮西瓜含有较多苦味物质，不适合制作。此外，如果容器清洗不彻底残留油污，或者混合了生水，都会导致杂菌滋生，产生异味。建议使用无油无水的干净玻璃容器进行密封发酵。
+                        </p>
+                        <a href="#" class="read-more">阅读常见问题 &rarr;</a>
+                    </article>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <!-- Ingredients Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">核心食材清单</h3>
+                    <ul class="ingredient-list">
+                        <li><span>成熟西瓜</span><span>1个</span></li>
+                        <li><span>干黄豆</span><span>300g</span></li>
+                        <li><span>食盐</span><span>适量</span></li>
+                        <li><span>辣椒面</span><span>50-100g</span></li>
+                        <li><span>花椒</span><span>少许</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tips Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">制作小贴士</h3>
+                    <ul class="tips-list">
+                        <li>黄豆需要提前浸泡一晚，煮熟后再与西瓜混合。</li>
+                        <li>发酵期间不要频繁打开盖子，以免杂菌进入。</li>
+                        <li>天气转凉后应移至室内阴凉处，防止变质。</li>
+                        <li>食用时可加入少量香油提香。</li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget" style="background: linear-gradient(135deg, #ff6b6b, #ee5253); color: white;">
+                    <h3 class="widget-title" style="border-color: rgba(255,255,255,0.3); color: white;">获取独家食谱</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; opacity: 0.9;">订阅我们的简报，获取更多家常菜制作技巧。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 10px; border: none; border-radius: 4px; margin-bottom: 10px;">
+                    <button style="width: 100%; padding: 10px; background: white; color: #ee5253; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">订阅</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="container faq-section">
+            <h2 class="section-title" style="justify-content: center;">常见问题 (FAQ)</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">西瓜酱需要发酵多久才能吃？</div>
+                    <div class="faq-answer">一般来说，在夏季高温下，大约需要7到10天。当西瓜块完全软化，油脂析出，且闻到浓郁的酱香味时即可食用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">没有太阳的时候可以用什么代替？</div>
+                    <div class="faq-answer">可以使用烤箱低温发酵，或者使用电饭煲的“保温”功能模拟恒温环境，但风味可能会略逊于阳光暴晒的自然发酵。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">西瓜酱放久了会长白毛还能吃吗？</div>
+                    <div class="faq-answer">绝对不能食用。如果表面出现白色、绿色或黑色的霉斑，说明已经受到杂菌污染，应直接丢弃。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; color: #b2bec3;">西瓜酱致力于分享最地道的传统美食制作方法，让更多人体验到手工发酵带来的纯粹美味。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">食谱大全</a></li>
+                        <li><a href="#">制作视频</a></li>
+                        <li><a href="#">联系投稿</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>分类浏览</h4>
+                    <ul>
+                        <li><a href="#">酱料类</a></li>
+                        <li><a href="#">腌制品</a></li>
+                        <li><a href="#">下饭菜</a></li>
+                        <li><a href="#">夏日饮品</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 西瓜酱美食指南. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
