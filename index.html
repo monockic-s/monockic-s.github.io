@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="神马搜索 - 全球中文搜索引擎，提供网页、图片、视频、新闻、地图等多种搜索服务，助您快速找到所需信息。">
+    <meta name="keywords" content="神马, 神马搜索, 搜索引擎, 中文搜索, 网页搜索, 图片搜索, 新闻搜索">
+    <title>神马搜索 - 全球中文搜索引擎</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-dark: #202124;
+            --text-gray: #5f6368;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dfe1e5;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 24px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        header.scrolled {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-text {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-login:hover {
+            background-color: #3367d6;
+        }
+
+        /* Main Search Section */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px 60px;
+            background: radial-gradient(circle at center, #f1f8ff 0%, #ffffff 70%);
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 584px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            color: var(--primary-color);
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 48px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            padding: 0 48px 0 20px;
+            font-size: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, border-color 0.2s;
+            outline: none;
+        }
+
+        .search-bar:hover, .search-bar:focus {
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #f1f3f4;
+            color: var(--primary-color);
+        }
+
+        .search-suggestions {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .search-suggestions span {
+            cursor: pointer;
+        }
+
+        .search-suggestions span:hover {
+            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 40px 20px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--bg-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { background: #e8f0fe; color: var(--primary-color); }
+        .feature-card:nth-child(2) .feature-icon { background: #e6f4ea; color: var(--secondary-color); }
+        .feature-card:nth-child(3) .feature-icon { background: #fef7e0; color: var(--accent-color); }
+        .feature-card:nth-child(4) .feature-icon { background: #fce8e6; color: #ea4335; }
+
+        .feature-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 40px 20px;
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background-color: var(--bg-light);
+        }
+
+        .cat-img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .cat-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateX(4px);
+        }
+
+        .news-date {
+            background: var(--bg-light);
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .news-date .day {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .news-date .month {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .news-content h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            font-size: 14px;
+            color: var(--text-gray);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .sidebar-news {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-news h4 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar-list a {
+            font-size: 14px;
+            color: var(--text-dark);
+            display: block;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar-list span {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-col h5 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .footer-col ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .grid-4, .category-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none; /* Simplified mobile nav for demo */
+            }
+
+            .header-actions {
+                display: none;
+            }
+
+            .news-item {
+                flex-direction: column;
+            }
+
+            .news-date {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+            }
+            
+            .news-date .day {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#4285f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="#4285f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="#4285f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>神马</span>搜索
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">网页</a></li>
+                <li><a href="#">资讯</a></li>
+                <li><a href="#">图片</a></li>
+                <li><a href="#">视频</a></li>
+                <li><a href="#">地图</a></li>
+                <li><a href="#">更多</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn-text">应用中心</a>
+            <a href="#" class="btn-login">登录</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">神马<span>搜索</span></h1>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="搜索您感兴趣的内容..." aria-label="搜索内容">
+                    <button class="search-btn" aria-label="搜索">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-suggestions">
+                    <span>神马小说排行榜</span>
+                    <span>神马电影解说</span>
+                    <span>神马SEO优化技巧</span>
+                    <span>神马浏览器下载</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">为您带来的搜索体验</h2>
+                <div class="grid-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速响应</h3>
+                        <p>采用先进的索引技术，毫秒级返回结果，让信息获取不再等待。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>全球视野</h3>
+                        <p>整合全球中文资源，不仅搜索中文网页，更提供精准的海外资讯。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>安全过滤</h3>
+                        <p>智能过滤不良信息与恶意链接，营造绿色健康的搜索环境。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>移动优先</h3>
+                        <p>完美适配各类移动设备，随时随地享受流畅的搜索服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">热门搜索频道</h2>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/tech/100/100" alt="科技" class="cat-img">
+                        <span class="cat-name">科技数码</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/movie/100/100" alt="娱乐" class="cat-img">
+                        <span class="cat-name">娱乐八卦</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/news/100/100" alt="新闻" class="cat-img">
+                        <span class="cat-name">时事新闻</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/game/100/100" alt="游戏" class="cat-img">
+                        <span class="cat-name">网络游戏</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/life/100/100" alt="生活" class="cat-img">
+                        <span class="cat-name">生活百科</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/finance/100/100" alt="财经" class="cat-img">
+                        <span class="cat-name">财经金融</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/sport/100/100" alt="体育" class="cat-img">
+                        <span class="cat-name">体育赛事</span>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/edu/100/100" alt="教育" class="cat-img">
+                        <span class="cat-name">教育培训</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="container">
+                <h2 class="section-title">最新资讯动态</h2>
+                <div class="news-grid">
+                    <div class="news-list">
+                        <article class="news-item">
+                            <div class="news-date">
+                                <span class="day">15</span>
+                                <span class="month">10月</span>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">神马搜索发布全新算法模型，提升内容相关性</a></h4>
+                                <p>为了更好地满足用户对高质量信息的需求，神马搜索近日宣布对其核心算法模型进行重大升级，重点优化了长尾词的抓取与排序逻辑。</p>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">
+                                <span class="day">14</span>
+                                <span class="month">10月</span>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">移动端搜索流量持续增长，神马生态建设取得新突破</a></h4>
+                                <p>根据最新行业报告显示，神马搜索在移动端市场份额稳步提升，与多家头部APP达成深度战略合作，构建起高效的移动搜索生态。</p>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">
+                                <span class="day">12</span>
+                                <span class="month">10月</span>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">神马搜索上线“图文搜索”新功能，发现更美的世界</a></h4>
+                                <p>全新的图文搜索功能支持以图搜图及场景化搜索，用户只需上传图片或描述场景，即可快速找到相关的高清美图和灵感素材。</p>
+                            </div>
+                        </article>
+                    </div>
+                    <aside>
+                        <div class="sidebar-news">
+                            <h4>热门推荐</h4>
+                            <ul class="sidebar-list">
+                                <li><a href="#">2024年人工智能发展趋势预测</a><span>2小时前</span></li>
+                                <li><a href="#">如何优化网站以获得神马收录</a><span>5小时前</span></li>
+                                <li><a href="#">神马浏览器隐私保护功能详解</a><span>1天前</span></li>
+                                <li><a href="#">全球热门旅游景点排行榜</a><span>1天前</span></li>
+                                <li><a href="#">最新手机摄影技巧分享</a><span>2天前</span></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 16px;">
+                    <span>神马</span>搜索
+                </div>
+                <p style="font-size: 13px; color: var(--text-gray); max-width: 300px;">
+                    专注于为用户提供高效、精准的中文搜索服务，连接信息与用户，创造价值。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h5>关于我们</h5>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>产品服务</h5>
+                <ul>
+                    <li><a href="#">神马搜索</a></li>
+                    <li><a href="#">神马浏览器</a></li>
+                    <li><a href="#">站长平台</a></li>
+                    <li><a href="#">广告服务</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>帮助中心</h5>
+                <ul>
+                    <li><a href="#">使用指南</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 神马搜索. All Rights Reserved. 互联网备案号：京ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Simple search interaction simulation
+        const searchInput = document.querySelector('.search-bar');
+        const searchBtn = document.querySelector('.search-btn');
+        
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if(query) {
+                // In a real app, this would redirect to a search results page
+                alert('正在为您搜索：' + query);
+            }
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+                                                                     </html>
