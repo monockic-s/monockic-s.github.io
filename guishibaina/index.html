@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鬼使白哪里多 - 阴阳师SSR式神获取途径与刷取攻略</title>
+    <meta name="description" content="阴阳师鬼使白哪里多？本站提供鬼使白快速获取攻略，包括御魂副本、觉醒材料副本、探索副本、召唤概率及活动掉落汇总，助你高效刷取鬼使白。">
+    <meta name="keywords" content="鬼使白哪里多,阴阳师,鬼使白攻略,御魂副本,觉醒材料">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 60px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 5px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span.count {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+            padding-left: 12px;
+            border-left: 1px solid #ddd;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #fafafa;
+        }
+
+        .card-header h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .highlight-tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .highlight-tag.rare {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        /* Table Styles for Dens */
+        .table-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #fafafa;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .diff-easy { background: #e3f2fd; color: #1565c0; }
+        .diff-medium { background: #fff3e0; color: #ef6c00; }
+        .diff-hard { background: #ffebee; color: #c62828; }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-question svg {
+            transition: transform 0.3s;
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .grid-layout { grid-template-columns: 1fr; }
+            .section-title { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <span>阴阳师</span>攻略大全
+        </a>
+        <nav class="nav-links">
+            <a href="#" class="active">式神图鉴</a>
+            <a href="#">御魂攻略</a>
+            <a href="#">活动日历</a>
+            <a href="#">资讯社区</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>鬼使白哪里多？</h1>
+        <p>全面解析阴阳师中鬼使白的快速获取途径，从觉醒材料到御魂副本，助你高效收集。</p>
+    </div>
+</section>
+
+<main class="container">
+
+    <!-- Quick Summary Cards -->
+    <section>
+        <div class="section-title">
+            <h2>主要获取途径</h2>
+        </div>
+        <div class="grid-layout">
+            <article class="card">
+                <div class="card-header">
+                    <h3>探索副本</h3>
+                </div>
+                <div class="card-body">
+                    <span class="highlight-tag">最基础</span>
+                    <p>在探索副本中，鬼使白会出现在多个章节。其中，第17章“河童”和第18章“镰鼬”是掉落SSR式神最密集的区域，是新手期刷取的主要来源。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3>觉醒材料副本</h3>
+                </div>
+                <div class="card-body">
+                    <span class="highlight-tag rare">高概率</span>
+                    <p>在觉醒副本中，鬼使白是“鬼使”系列式神，其觉醒材料的掉落率相对较高。建议在通关第17章后，专门针对“觉醒材料”副本进行刷取。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3>御魂副本</h3>
+                </div>
+                <div class="card-body">
+                    <span class="highlight-tag rare">推荐</span>
+                    <p>在御魂副本（如组队副本、困难副本）中，鬼使白是常见的“鬼使”系式神。虽然不如探索副本数量多，但作为高星副本，也是重要的补充来源。</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Detailed Table Section -->
+    <section>
+        <div class="section-title">
+            <h2>详细副本分布</h2>
+            <span class="count">点击章节查看掉落详情</span>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>副本类型</th>
+                        <th>章节/关卡</th>
+                        <th>掉落对象</th>
+                        <th>难度</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>探索副本</td>
+                        <td>第17章</td>
+                        <td>鬼使白 x 1</td>
+                        <td><span class="difficulty diff-easy">简单</span></td>
+                        <td>河童关卡，推荐每日刷取</td>
+                    </tr>
+                    <tr>
+                        <td>探索副本</td>
+                        <td>第18章</td>
+                        <td>鬼使白 x 1</td>
+                        <td><span class="difficulty diff-easy">简单</span></td>
+                        <td>镰鼬关卡，配合第17章使用</td>
+                    </tr>
+                    <tr>
+                        <td>觉醒材料</td>
+                        <td>第17章</td>
+                        <td>鬼使白 x 1</td>
+                        <td><span class="difficulty diff-medium">中等</span></td>
+                        <td>需通关普通探索解锁</td>
+                    </tr>
+                    <tr>
+                        <td>御魂副本</td>
+                        <td>组队副本</td>
+                        <td>鬼使白 x 1</td>
+                        <td><span class="difficulty diff-hard">困难</span></td>
+                        <td>适合中后期玩家组队</td>
+                    </tr>
+                    <tr>
+                        <td>百鬼夜行</td>
+                        <td>随机出现</td>
+                        <td>鬼使白 x 1</td>
+                        <td><span class="difficulty diff-hard">困难</span></td>
+                        <td>需消耗鬼火撒豆获取</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="section-title">
+            <h2>常见问题 (FAQ)</h2>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                鬼使白除了探索副本还能在哪里刷？
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+                除了第17章和第18章的探索副本，你还可以在觉醒材料副本中刷取。此外，百鬼夜行活动也是随机获得SSR式神（包括鬼使白）的重要途径。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                刷鬼使白需要什么条件？
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+                最基本的条件是通关第17章探索副本。如果是刷御魂副本或百鬼夜行，则需要一定的式神练度以及鬼火资源。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                鬼使白作为N卡，值得练吗？
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+                鬼使白虽然基础面板不高，但拥有优秀的被动技能“无常众”和“鬼火”能力，在前期推图、刷御魂以及部分PVE活动中作为副T或输出依然有不错的表现，适合作为过渡式神。
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 阴阳师游戏攻略站. 本站为非官方网站，所有游戏内容版权归网易公司所有。</p>
+        <p style="margin-top: 8px; font-size: 0.8rem; color: #7f8c8d;">本页面旨在提供游戏攻略信息，请勿用于任何商业用途。</p>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
