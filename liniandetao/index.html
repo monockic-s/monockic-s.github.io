@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李念的淘宝店-精选手作饰品与生活好物</title>
+    <meta name="description" content="欢迎光临李念的淘宝店，这里汇集了设计师手作饰品、原创家居用品及精选生活好物。支持个性定制，提供安全便捷的购物体验。">
+    <meta name="keywords" content="李念的淘宝店,手作饰品,淘宝店铺,原创家居,个性定制">
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff9eb5;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #fdfdfd;
+            --bg-section: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4757;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 129, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255, 107, 129, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Features */
+        .features {
+            padding: 50px 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Shop Categories */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        .categories {
+            padding: 80px 0;
+            background-color: var(--bg-section);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .category-info {
+            padding: 20px;
+        }
+
+        .category-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .category-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Product Showcase */
+        .showcase {
+            padding: 80px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-img {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .rating {
+            color: #ffc107;
+        }
+
+        /* About & Contact */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .about-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #fff0f3, #fff);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 107, 129, 0.1);
+        }
+
+        .contact-info-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .contact-info-item span {
+            color: var(--text-gray);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-section);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-item h4 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .faq-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for static showcase */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                李念的淘宝店
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#categories">分类选购</a></li>
+                    <li><a href="#new-arrivals">新品上架</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#contact">联系客服</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="alert('请前往淘宝APP搜索店铺名称')">登录</button>
+                <button class="btn btn-primary" onclick="alert('请前往淘宝APP搜索店铺名称')">逛逛</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-tags">
+                    <span class="tag">手作饰品</span>
+                    <span class="tag">原创设计</span>
+                    <span class="tag">品质生活</span>
+                </div>
+                <h1>发现生活中的<span>小确幸</span><br>从李念的淘宝店开始</h1>
+                <p>每一件商品都经过精心挑选与设计，旨在为您带来温暖、独特且实用的购物体验。支持定制服务，让美好触手可及。</p>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <button class="btn btn-primary" onclick="window.location.href='#categories'">立即选购</button>
+                    <button class="btn btn-outline" onclick="window.location.href='#about'">了解更多</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container features-grid">
+                <article class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <h3>原创设计</h3>
+                    <p>拒绝千篇一律，所有饰品与家居用品均由设计师原创设计，独一无二。</p>
+                </article>
+                <article class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <h3>严选材质</h3>
+                    <p>精选优质材料，注重安全与舒适，确保每一件产品都经得起时间考验。</p>
+                </article>
+                <article class="feature-item">
+                    <span class="feature-icon">🚀</span>
+                    <h3>极速发货</h3>
+                    <p>库存充足，下单后24小时内快速打包发货，让期待不再等待。</p>
+                </article>
+                <article class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>售后无忧</h3>
+                    <p>提供完善的售后服务，如有质量问题或尺寸不符，支持无忧退换。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section id="categories" class="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选分类</h2>
+                    <p>为您梳理最受欢迎的商品类别，轻松找到心仪好物</p>
+                </div>
+                <div class="category-grid">
+                    <a href="#" class="category-card">
+                        <img src="https://picsum.photos/seed/jewelry/400/300" alt="手作饰品" class="category-img">
+                        <div class="category-info">
+                            <h3>手作饰品</h3>
+                            <p>项链、耳环、手链系列</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <img src="https://picsum.photos/seed/home/400/300" alt="家居好物" class="category-img">
+                        <div class="category-info">
+                            <h3>家居好物</h3>
+                            <p>装饰摆件、收纳用品</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <img src="https://picsum.photos/seed/clothing/400/300" alt="服装穿搭" class="category-img">
+                        <div class="category-info">
+                            <h3>服装穿搭</h3>
+                            <p>设计感上衣、配饰搭配</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <img src="https://picsum.photos/seed/gift/400/300" alt="礼品定制" class="category-img">
+                        <div class="category-info">
+                            <h3>礼品定制</h3>
+                            <p>专属刻字、节日礼物</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals -->
+        <section id="new-arrivals" class="showcase">
+            <div class="container">
+                <div class="section-title">
+                    <h2>新品上架</h2>
+                    <p>最新推出的设计系列，抢先体验当季潮流</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-img">
+                            <span class="badge">新品</span>
+                            <img src="https://picsum.photos/seed/p1/300/300" alt="复古珍珠耳环">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">复古珍珠金属耳环</h3>
+                            <div class="product-price">¥58.00</div>
+                            <div class="product-meta">
+                                <span class="rating">★★★★★ (128)</span>
+                                <span>已售 500+</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img src="https://picsum.photos/seed/p2/300/300" alt="极简棉麻手提袋">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">极简棉麻手提袋</h3>
+                            <div class="product-price">¥89.00</div>
+                            <div class="product-meta">
+                                <span class="rating">★★★★☆ (85)</span>
+                                <span>已售 320+</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-img">
+                            <span class="badge" style="background-color: #ff9f43;">热卖</span>
+                            <img src="https://picsum.photos/seed/p3/300/300" alt="ins风香薰蜡烛">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">ins风原木香薰蜡烛</h3>
+                            <div class="product-price">¥128.00</div>
+                            <div class="product-meta">
+                                <span class="rating">★★★★★ (210)</span>
+                                <span>已售 890+</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img src="https://picsum.photos/seed/p4/300/300" alt="手工编织围巾">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">手工羊毛编织围巾</h3>
+                            <div class="product-price">¥168.00</div>
+                            <div class="product-meta">
+                                <span class="rating">★★★★★ (56)</span>
+                                <span>已售 120+</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="btn btn-outline" onclick="alert('请前往淘宝APP搜索店铺')">查看全部商品</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Contact -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>关于李念的淘宝店</h2>
+                        <p>“李念的淘宝店”创立于2019年，初衷是为追求生活品质的朋友们提供一份独特而温暖的礼物。我们相信，好的设计能让平凡的日子闪闪发光。</p>
+                        <p>店主李念是一位热爱生活与手工的设计师，坚持原创，拒绝抄袭。无论是饰品、家居还是服装，我们都力求在细节处体现匠心，在色彩上追求和谐。</p>
+                        <ul class="about-features">
+                            <li>支持一对一专属定制服务</li>
+                            <li>所有饰品均通过安全质检</li>
+                            <li>支持货到付款（部分地区）</li>
+                        </ul>
+                    </div>
+                    <div class="contact-box" id="contact">
+                        <h3 style="margin-bottom: 20px;">联系客服</h3>
+                        <div class="contact-info-item">
+                            <strong>店铺名称</strong>
+                            <span>李念的淘宝店</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>在线咨询</strong>
+                            <span>支持旺旺即时沟通</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>配送范围</strong>
+                            <span>全国大部分地区包邮</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>退换货政策</strong>
+                            <span>支持7天无理由退换</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="window.open('https://www.taobao.com', '_blank')">去淘宝店铺逛逛</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>关于购物、发货及售后的常见疑问解答</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>支持定制服务吗？</h4>
+                        <p>是的，部分饰品和手工艺品支持定制服务。您可以在商品详情页选择定制选项，或直接联系客服说明您的需求。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>发货需要多长时间？</h4>
+                        <p>一般情况下，您下单后24小时内会安排发货。偏远地区可能会延长1-2天，具体以物流信息为准。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如何查看物流信息？</h4>
+                        <p>下单后，您将收到包含物流单号的短信通知。您也可以在淘宝订单详情页实时查看物流进度。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>尺码不合适可以退换吗？</h4>
+                        <p>支持7天无理由退换货。请保持商品包装完好，不影响二次销售即可申请退款。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于店铺</h4>
+                    <ul>
+                        <li><a href="#">店铺简介</a></li>
+                        <li><a href="#">设计师故事</a></li>
+                        <li><a href="#">品牌理念</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="#">购物指南</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">尺码对照表</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">淘宝官方店铺</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">小红书笔记</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：400-888-8888</li>
+                        <li>邮箱：service@li-nian.com</li>
+                        <li>工作时间：9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 李念的淘宝店 版权所有 | 仅供展示使用</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
