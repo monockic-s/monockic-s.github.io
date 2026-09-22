@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无尽秘密法杖 - 神秘传说与获取指南</title>
+    <meta name="description" content="探索无尽秘密法杖的神秘传说、属性特效、获取途径及在奇幻战斗中的使用技巧。为您提供详尽的法杖图鉴与攻略。">
+    <meta name="keywords" content="无尽秘密法杖, 魔法武器, 奇幻装备, 游戏攻略, 法杖图鉴">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a00e0;
+            --secondary-color: #8e2de2;
+            --accent-color: #00d2ff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-dark: #0f0c29;
+            --bg-card: #1a1a2e;
+            --bg-nav: rgba(15, 12, 41, 0.95);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #302b63 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-nav);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/magicstaff/1920/1080') no-repeat center center/cover;
+            opacity: 0.4;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(74, 0, 224, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 0, 224, 0.6);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Attributes Grid */
+        .attributes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .attribute-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .attribute-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .attribute-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .attribute-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Acquisition Section */
+        .acquisition-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .acquisition-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .acquisition-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            min-width: 40px;
+        }
+
+        .step-content h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Usage Guide */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+        }
+
+        .guide-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #ccc;
+        }
+
+        .guide-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* Stats Table */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .stats-table th, .stats-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-table th {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .stats-table td {
+            color: #ddd;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #05040a;
+            padding: 3rem 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-table {
+                font-size: 0.9rem;
+            }
+
+            .stats-table th, .stats-table td {
+                padding: 0.8rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">无尽秘密法杖</div>
+            <nav class="nav-links">
+                <a href="#overview">图鉴概览</a>
+                <a href="#acquisition">获取方式</a>
+                <a href="#usage">实战技巧</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>无尽秘密法杖</h1>
+                <p>传说中蕴含古老力量的神器，掌握它，便掌握了元素的秘密。探索其背后的传说与使用指南。</p>
+                <a href="#acquisition" class="btn">开始探索</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Overview Section -->
+            <section id="overview">
+                <div class="section-title">
+                    <h2>图鉴概览</h2>
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="attributes-grid">
+                    <div class="attribute-card">
+                        <div class="icon-box">⚡</div>
+                        <h3>魔法增幅</h3>
+                        <p>对所有元素系魔法伤害提升 35%，施法速度加快 15%。</p>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="icon-box">🛡️</div>
+                        <h3>元素抗性</h3>
+                        <p>大幅提升对火焰、冰霜、雷电的伤害抗性，减少负面状态持续时间。</p>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="icon-box">🔮</div>
+                        <h3>暗影亲和</h3>
+                        <p>赋予使用者暗影步能力，并在夜间战斗中获得隐身加成。</p>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="icon-box">📜</div>
+                        <h3>古老卷轴</h3>
+                        <p>法杖内部封印着一段失落的咒语，可用于释放范围性控制技能。</p>
+                    </div>
+                </div>
+
+                <div class="acquisition-section">
+                    <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                        <h2>详细属性数据</h2>
+                        <div class="divider" style="margin: 0;"></div>
+                    </div>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>属性类别</th>
+                                <th>数值/描述</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>基础攻击力</td>
+                                <td>+120</td>
+                                <td>法系武器基准</td>
+                            </tr>
+                            <tr>
+                                <td>智力加成</td>
+                                <td>+50</td>
+                                <td>每点智力提升 1.5% 法术强度</td>
+                            </tr>
+                            <tr>
+                                <td>暴击率</td>
+                                <td>+18%</td>
+                                <td>法术暴击伤害提升 50%</td>
+                            </tr>
+                            <tr>
+                                <td>特殊特效</td>
+                                <td>奥术充能</td>
+                                <td>释放技能有概率获得一层护盾</td>
+                            </tr>
+                            <tr>
+                                <td>职业限制</td>
+                                <td>法师 / 大魔导师</td>
+                                <td>其他职业装备需消耗精神力</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Acquisition Section -->
+            <section id="acquisition">
+                <div class="section-title">
+                    <h2>获取方式</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="acquisition-list">
+                    <div class="acquisition-item">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>完成主线剧情：深渊回响</h4>
+                            <p>在游戏或小说设定中，需前往“失落神殿”副本，击败守关魔导士并拾取核心法器，法杖才会显露真容。</p>
+                        </div>
+                    </div>
+                    <div class="acquisition-item">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4>稀有材料兑换</h4>
+                            <p>收集“星尘碎片”与“龙骨粉末”各 100 个，前往锻造师处进行合成。该途径对新手较为友好。</p>
+                        </div>
+                    </div>
+                    <div class="acquisition-item">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>特殊事件掉落</h4>
+                            <p>在“万圣节庆典”或“周年庆”限时活动中，有极低概率从宝箱中直接获得。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Section -->
+            <section id="usage">
+                <div class="section-title">
+                    <h2>实战技巧与用法</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>⚔️ 核心连招</h3>
+                        <p style="margin-bottom: 1rem; color: #aaa;">掌握正确的技能释放顺序，是发挥法杖威力的关键。</p>
+                        <ul class="guide-list">
+                            <li><strong>起手：</strong>使用“奥术飞弹”吸引仇恨。</li>
+                            <li><strong>控制：</strong>接“寒冰新星”冻结敌人，争取施法时间。</li>
+                            <li><strong>爆发：</strong>开启“无尽秘密”天赋，释放“陨石术”或“爆裂火球”。</li>
+                            <li><strong>收尾：</strong>利用“暗影步”拉近距离，释放终结技。</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>🛡️ 防御策略</h3>
+                        <p style="margin-bottom: 1rem; color: #aaa;">面对高爆发敌人时的生存指南。</p>
+                        <ul class="guide-list">
+                            <li><strong>保持距离：</strong>作为远程武器，切勿近身。</li>
+                            <li><strong>护盾管理：</strong>优先使用法杖自带的护盾技能，而非普通治疗。</li>
+                            <li><strong>环境利用：</strong>在狭窄地形中，利用法杖的范围控制技能分割战场。</li>
+                            <li><strong>资源回收：</strong>注意法力值回复，避免因蓝量耗尽而失去防御手段。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="faq-section">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">无尽秘密法杖适合哪个职业？</div>
+                    <div class="faq-answer">
+                        <p>该法杖主要针对高魔法的法师、大魔导师以及部分使用法术形态的刺客职业。如果是纯物理职业，装备后会降低属性。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">法杖是否需要特殊升级材料？</div>
+                    <div class="faq-answer">
+                        <p>是的，法杖升级需要“虚空水晶”。不同等级的升级对水晶的数量和纯度有不同要求，建议在游戏前期积攒资源。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">装备法杖后会有负面效果吗？</div>
+                    <div class="faq-answer">
+                        <p>根据设定，法杖会稍微增加施法时的施法前摇，且无法装备盾牌。但通过佩戴增加施法速度的饰品，可以有效抵消这一缺点。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">社区论坛</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系支持</a>
+            </div>
+            <p>&copy; 2023 无尽秘密法杖资料站. 保留所有权利。</p>
+            <p style="font-size: 0.8rem; opacity: 0.5;">本站内容仅供游戏攻略参考，不涉及实际游戏版权。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
